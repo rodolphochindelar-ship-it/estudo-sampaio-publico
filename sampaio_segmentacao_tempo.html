@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sampaio — Segmentação por Período de Viagem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F6F5F1;--surface:#FFFFFF;--surface-alt:#EFEDE7;--surface-mid:#E8E5DD;
+  --border:rgba(0,0,0,.07);--border-strong:rgba(0,0,0,.14);
+  --text-1:#1C1B18;--text-2:#6A6860;--text-3:#A09D95;
+  --blue:#185FA5;--blue-l:#E6F1FB;--blue-m:#378ADD;
+  --green:#1E5C2A;--green-l:#E4F2E7;--green-m:#2E8B3E;
+  --amber:#7A4500;--amber-l:#FDF0DC;--amber-m:#D07A00;
+  --red:#8B1F1F;--red-l:#FDEAEA;--red-m:#D04040;
+  --purple:#3C3489;--purple-l:#EEEDFE;--purple-m:#7F77DD;
+  --r:8px;--r-lg:14px;
+  --sh:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --sh-md:0 4px 16px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);
+}
+
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+.wrap{max-width:1120px;margin:0 auto;padding:40px 24px 80px}
+
+/* HEADER */
+.hdr{margin-bottom:40px;padding-bottom:28px;border-bottom:1px solid var(--border-strong)}
+.hdr-eye{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);font-family:'DM Mono',monospace;margin-bottom:8px}
+.hdr-title{font-size:30px;font-weight:600;letter-spacing:-0.03em;line-height:1.15;color:var(--text-1)}
+.hdr-sub{font-size:13px;color:var(--text-2);margin-top:6px}
+
+/* TOTALS ROW */
+.totals{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:36px}
+.total-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh)}
+.total-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-family:'DM Mono',monospace;margin-bottom:6px}
+.total-value{font-size:26px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:var(--text-1)}
+.total-sub{font-size:11px;color:var(--text-3);margin-top:4px}
+.total-value.clr-blue{color:var(--blue)}
+.total-value.clr-green{color:var(--green-m)}
+.total-value.clr-amber{color:var(--amber-m)}
+
+/* DIVIDER LABEL */
+.period-divider{display:flex;align-items:center;gap:12px;margin:0 0 20px}
+.period-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.period-title{font-size:13px;font-weight:600;color:var(--text-1)}
+.period-badge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;font-family:'DM Mono',monospace}
+.period-line{flex:1;height:1px;background:var(--border-strong)}
+
+/* GRID 2 COLS MAIN */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
+
+/* SEGMENT CARDS */
+.seg-grid{display:flex;flex-direction:column;gap:8px}
+.seg-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh)}
+.seg-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.seg-name{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-1)}
+.seg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.seg-pct-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;font-family:'DM Mono',monospace}
+.seg-numbers{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg-num{background:var(--surface-alt);border-radius:var(--r);padding:8px 10px}
+.seg-num-label{font-size:10px;color:var(--text-3);margin-bottom:2px;font-weight:500}
+.seg-num-val{font-size:15px;font-weight:600;font-family:'DM Mono',monospace;letter-spacing:-0.01em}
+.seg-bar{height:4px;border-radius:2px;margin-top:10px}
+
+/* ROTA LIST */
+.rota-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh)}
+.rota-card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-family:'DM Mono',monospace;margin-bottom:14px}
+.rota-item{padding:7px 0;border-bottom:1px solid var(--border)}
+.rota-item:last-child{border-bottom:none}
+.rota-item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:5px}
+.rota-nome{font-size:12px;font-weight:500;color:var(--text-1);flex:1;line-height:1.3}
+.rota-pax{font-size:11px;font-family:'DM Mono',monospace;color:var(--text-2);white-space:nowrap}
+.rota-bar-wrap{height:4px;background:var(--surface-mid);border-radius:2px;overflow:hidden}
+.rota-bar-fill{height:4px;border-radius:2px}
+.rota-viag{font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace}
+
+/* COMPARISON TABLE */
+.cmp-section{margin-bottom:40px}
+.cmp-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);font-family:'DM Mono',monospace;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.cmp-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.cmp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cmp-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;box-shadow:var(--sh)}
+.cmp-seg-label{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;margin-bottom:12px}
+.cmp-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.cmp-row:last-child{border-bottom:none}
+.cmp-row-label{font-size:11px;color:var(--text-2)}
+.cmp-row-vals{display:flex;gap:10px}
+.cmp-val{font-size:12px;font-weight:600;font-family:'DM Mono',monospace;min-width:52px;text-align:right}
+.cmp-val.v-recent{color:var(--blue)}
+.cmp-val.v-old{color:var(--text-3)}
+.cmp-legend{display:flex;gap:12px;margin-bottom:12px}
+.cmp-leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-2)}
+.cmp-leg-dot{width:8px;height:8px;border-radius:2px}
+
+@media(max-width:700px){
+  .grid-2{grid-template-columns:1fr}
+  .totals{grid-template-columns:1fr 1fr}
+  .cmp-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hdr">
+    <p class="hdr-eye">Grupo Guanabara · Sampaio · Referência 20/05/2026</p>
+    <h1 class="hdr-title">Segmentação por período de viagem</h1>
+    <p class="hdr-sub">Comparativo entre passageiros ativos nos últimos 6 meses e passageiros com mais de 6 meses sem viajar</p>
+  </header>
+
+  <!-- TOTAIS -->
+  <div class="totals">
+    <div class="total-card">
+      <p class="total-label">Base total Sampaio</p>
+      <p class="total-value clr-blue">732.308</p>
+      <p class="total-sub">Passageiros únicos na base</p>
+    </div>
+    <div class="total-card">
+      <p class="total-label">Últimos 6 meses</p>
+      <p class="total-value clr-green">214.226</p>
+      <p class="total-sub">29,3% da base · 307.014 viagens</p>
+    </div>
+    <div class="total-card">
+      <p class="total-label">Mais de 6 meses</p>
+      <p class="total-value clr-amber">518.082</p>
+      <p class="total-sub">70,7% da base · 592.834 viagens</p>
+    </div>
+  </div>
+
+  <!-- ÚLTIMOS 6 MESES -->
+  <div class="period-divider">
+    <div class="period-dot" style="background:var(--blue)"></div>
+    <p class="period-title">Últimos 6 meses</p>
+    <span class="period-badge" style="background:var(--blue-l);color:var(--blue)">214.226 passageiros</span>
+    <div class="period-line"></div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Segmentação -->
+    <div class="seg-grid">
+
+      <div class="seg-card">
+        <div class="seg-head">
+          <div class="seg-name"><div class="seg-dot" style="background:#378ADD"></div>Ocasionais <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 1 viagem</span></div>
+          <span class="seg-pct-badge" style="background:var(--blue-l);color:var(--blue)">82,5%</span>
+        </div>
+        <div class="seg-numbers">
+          <div class="seg-num">
+            <p class="seg-num-label">Passageiros</p>
+            <p class="seg-num-val" style="color:var(--blue)">176.721</p>
+          </div>
+          <div class="seg-num">
+            <p class="seg-num-label">Viagens</p>
+            <p class="seg-num-val">176.721</p>
+          </div>
+        </div>
+        <div class="seg-bar" style="background:linear-gradient(90deg,#378ADD 82.5%,var(--surface-mid) 82.5%)"></div>
+      </div>
+
+      <div class="seg-card" style="border:2px solid #C8C4F8">
+        <div class="seg-head">
+          <div class="seg-name"><div class="seg-dot" style="background:#7F77DD"></div>Frequentes <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 2–9 viagens</span></div>
+          <span class="seg-pct-badge" style="background:var(--purple-l);color:var(--purple)">16,8%</span>
+        </div>
+        <div class="seg-numbers">
+          <div class="seg-num">
+            <p class="seg-num-label">Passageiros</p>
+            <p class="seg-num-val" style="color:var(--purple)">36.068</p>
+          </div>
+          <div class="seg-num">
+            <p class="seg-num-label">Viagens</p>
+            <p class="seg-num-val">106.253</p>
+          </div>
+        </div>
+        <div class="seg-bar" style="background:linear-gradient(90deg,#7F77DD 16.8%,var(--surface-mid) 16.8%)"></div>
+      </div>
+
+      <div class="seg-card">
+        <div class="seg-head">
+          <div class="seg-name"><div class="seg-dot" style="background:#2E8B3E"></div>Pendulares <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 10+ viagens</span></div>
+          <span class="seg-pct-badge" style="background:var(--green-l);color:var(--green)">0,7%</span>
+        </div>
+        <div class="seg-numbers">
+          <div class="seg-num">
+            <p class="seg-num-label">Passageiros</p>
+            <p class="seg-num-val" style="color:var(--green-m)">1.437</p>
+          </div>
+          <div class="seg-num">
+            <p class="seg-num-label">Viagens</p>
+            <p class="seg-num-val">24.040</p>
+          </div>
+        </div>
+        <div class="seg-bar" style="background:linear-gradient(90deg,#2E8B3E 0.7%,var(--surface-mid) 0.7%)"></div>
+      </div>
+
+    </div>
+
+    <!-- Rotas -->
+    <div class="rota-card">
+      <p class="rota-card-title">Top 10 rotas — últimos 6 meses</p>
+      <div id="rotas-ate6">
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ São José dos Campos - SP</p>
+            <p class="rota-pax">37.251 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:100%;background:#378ADD"></div></div>
+          <p class="rota-viag">60.524 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Aparecida - SP</p>
+            <p class="rota-pax">23.038 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:62%;background:#378ADD"></div></div>
+          <p class="rota-viag">28.107 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Taubaté - SP</p>
+            <p class="rota-pax">19.665 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:53%;background:#378ADD"></div></div>
+          <p class="rota-viag">32.355 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ São Lourenço - MG</p>
+            <p class="rota-pax">13.781 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:37%;background:#378ADD"></div></div>
+          <p class="rota-viag">20.542 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Santos - SP</p>
+            <p class="rota-pax">16.142 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:43%;background:#378ADD"></div></div>
+          <p class="rota-viag">18.762 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Mogi das Cruzes - SP</p>
+            <p class="rota-pax">8.310 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:22%;background:#378ADD"></div></div>
+          <p class="rota-viag">12.001 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Pouso Alegre - MG</p>
+            <p class="rota-pax">7.065 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:19%;background:#378ADD"></div></div>
+          <p class="rota-viag">10.502 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Varginha - MG</p>
+            <p class="rota-pax">6.140 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:16%;background:#378ADD"></div></div>
+          <p class="rota-viag">9.443 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">SJC - SP ↔ Resende - RJ</p>
+            <p class="rota-pax">4.597 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:12%;background:#378ADD"></div></div>
+          <p class="rota-viag">7.201 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Lavras - MG</p>
+            <p class="rota-pax">4.858 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:12%;background:#378ADD"></div></div>
+          <p class="rota-viag">6.951 viagens</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIS DE 6 MESES -->
+  <div class="period-divider">
+    <div class="period-dot" style="background:var(--amber-m)"></div>
+    <p class="period-title">Mais de 6 meses sem viajar</p>
+    <span class="period-badge" style="background:var(--amber-l);color:var(--amber)">518.082 passageiros</span>
+    <div class="period-line"></div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Segmentação -->
+    <div class="seg-grid">
+
+      <div class="seg-card">
+        <div class="seg-head">
+          <div class="seg-name"><div class="seg-dot" style="background:#D07A00"></div>Ocasionais <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 1 viagem</span></div>
+          <span class="seg-pct-badge" style="background:var(--amber-l);color:var(--amber)">91,6%</span>
+        </div>
+        <div class="seg-numbers">
+          <div class="seg-num">
+            <p class="seg-num-label">Passageiros</p>
+            <p class="seg-num-val" style="color:var(--amber-m)">474.386</p>
+          </div>
+          <div class="seg-num">
+            <p class="seg-num-label">Viagens</p>
+            <p class="seg-num-val">474.386</p>
+          </div>
+        </div>
+        <div class="seg-bar" style="background:linear-gradient(90deg,#D07A00 91.6%,var(--surface-mid) 91.6%)"></div>
+      </div>
+
+      <div class="seg-card" style="border:2px solid #F0D8A8">
+        <div class="seg-head">
+          <div class="seg-name"><div class="seg-dot" style="background:#D07A00"></div>Frequentes <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 2–9 viagens</span></div>
+          <span class="seg-pct-badge" style="background:var(--amber-l);color:var(--amber)">8,3%</span>
+        </div>
+        <div class="seg-numbers">
+          <div class="seg-num">
+            <p class="seg-num-label">Passageiros</p>
+            <p class="seg-num-val" style="color:var(--amber-m)">43.195</p>
+          </div>
+          <div class="seg-num">
+            <p class="seg-num-label">Viagens</p>
+            <p class="seg-num-val">110.772</p>
+          </div>
+        </div>
+        <div class="seg-bar" style="background:linear-gradient(90deg,#D07A00 8.3%,var(--surface-mid) 8.3%)"></div>
+      </div>
+
+      <div class="seg-card">
+        <div class="seg-head">
+          <div class="seg-name"><div class="seg-dot" style="background:#D07A00"></div>Pendulares <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 10+ viagens</span></div>
+          <span class="seg-pct-badge" style="background:var(--amber-l);color:var(--amber)">0,1%</span>
+        </div>
+        <div class="seg-numbers">
+          <div class="seg-num">
+            <p class="seg-num-label">Passageiros</p>
+            <p class="seg-num-val" style="color:var(--amber-m)">501</p>
+          </div>
+          <div class="seg-num">
+            <p class="seg-num-label">Viagens</p>
+            <p class="seg-num-val">7.676</p>
+          </div>
+        </div>
+        <div class="seg-bar" style="background:linear-gradient(90deg,#D07A00 0.1%,var(--surface-mid) 0.1%)"></div>
+      </div>
+
+    </div>
+
+    <!-- Rotas -->
+    <div class="rota-card">
+      <p class="rota-card-title">Top 10 rotas — mais de 6 meses</p>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ São José dos Campos - SP</p>
+            <p class="rota-pax">90.311 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:100%;background:#D07A00"></div></div>
+          <p class="rota-viag">108.532 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Aparecida - SP</p>
+            <p class="rota-pax">52.554 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:58%;background:#D07A00"></div></div>
+          <p class="rota-viag">55.796 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Taubaté - SP</p>
+            <p class="rota-pax">46.982 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:52%;background:#D07A00"></div></div>
+          <p class="rota-viag">56.572 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Santos - SP</p>
+            <p class="rota-pax">39.368 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:44%;background:#D07A00"></div></div>
+          <p class="rota-viag">42.474 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ São Lourenço - MG</p>
+            <p class="rota-pax">33.702 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:37%;background:#D07A00"></div></div>
+          <p class="rota-viag">38.308 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Mogi das Cruzes - SP</p>
+            <p class="rota-pax">21.009 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:23%;background:#D07A00"></div></div>
+          <p class="rota-viag">24.164 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Pouso Alegre - MG</p>
+            <p class="rota-pax">15.580 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:17%;background:#D07A00"></div></div>
+          <p class="rota-viag">17.974 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Varginha - MG</p>
+            <p class="rota-pax">14.196 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:16%;background:#D07A00"></div></div>
+          <p class="rota-viag">16.718 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">SJC - SP ↔ Resende - RJ</p>
+            <p class="rota-pax">11.577 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:13%;background:#D07A00"></div></div>
+          <p class="rota-viag">13.845 viagens</p>
+        </div>
+
+        <div class="rota-item">
+          <div class="rota-item-top">
+            <p class="rota-nome">RJ ↔ Lavras - MG</p>
+            <p class="rota-pax">11.855 pax</p>
+          </div>
+          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:13%;background:#D07A00"></div></div>
+          <p class="rota-viag">13.504 viagens</p>
+        </div>
+
+    </div>
+  </div>
+
+  <!-- COMPARATIVO -->
+  <div class="cmp-section">
+    <p class="cmp-title">Comparativo entre períodos por segmento</p>
+    <div style="display:flex;gap:12px;margin-bottom:14px">
+      <div class="cmp-leg-item"><div class="cmp-leg-dot" style="background:var(--blue)"></div>Últimos 6 meses</div>
+      <div class="cmp-leg-item"><div class="cmp-leg-dot" style="background:var(--amber-m)"></div>Mais de 6 meses</div>
+    </div>
+    <div class="cmp-grid">
+
+      <div class="cmp-card">
+        <div class="cmp-seg-label">
+          <div class="seg-dot" style="background:#378ADD"></div>Ocasionais <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 1 viagem</span>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">Passageiros</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">176.721</span>
+            <span class="cmp-val v-old">474.386</span>
+          </div>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">% do grupo</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">82,5%</span>
+            <span class="cmp-val v-old">91,6%</span>
+          </div>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">Viagens</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">176.721</span>
+            <span class="cmp-val v-old">474.386</span>
+          </div>
+        </div>
+        <div style="margin-top:10px;background:var(--blue-l);border-radius:var(--r);padding:8px 10px">
+          <p style="font-size:11px;color:var(--blue)">Ocasionais crescem de 82,5% para 91,6% no grupo mais antigo — quanto mais tempo passa, menor a recorrência.</p>
+        </div>
+      </div>
+
+      <div class="cmp-card">
+        <div class="cmp-seg-label">
+          <div class="seg-dot" style="background:#7F77DD"></div>Frequentes <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 2–9 viagens</span>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">Passageiros</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">36.068</span>
+            <span class="cmp-val v-old">43.195</span>
+          </div>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">% do grupo</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">16,8%</span>
+            <span class="cmp-val v-old">8,3%</span>
+          </div>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">Viagens</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">106.253</span>
+            <span class="cmp-val v-old">110.772</span>
+          </div>
+        </div>
+        <div style="margin-top:10px;background:var(--purple-l);border-radius:var(--r);padding:8px 10px">
+          <p style="font-size:11px;color:var(--purple)">Frequentes representam o dobro no grupo ativo (16,8% vs 8,3%) — sinal de que quem mantém o hábito de viajar tende a ser mais recente.</p>
+        </div>
+      </div>
+
+      <div class="cmp-card">
+        <div class="cmp-seg-label">
+          <div class="seg-dot" style="background:#2E8B3E"></div>Pendulares <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 10+ viagens</span>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">Passageiros</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">1.437</span>
+            <span class="cmp-val v-old">501</span>
+          </div>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">% do grupo</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">0,7%</span>
+            <span class="cmp-val v-old">0,1%</span>
+          </div>
+        </div>
+        <div class="cmp-row">
+          <p class="cmp-row-label">Viagens</p>
+          <div class="cmp-row-vals">
+            <span class="cmp-val v-recent">24.040</span>
+            <span class="cmp-val v-old">7.676</span>
+          </div>
+        </div>
+        <div style="margin-top:10px;background:var(--green-l);border-radius:var(--r);padding:8px 10px">
+          <p style="font-size:11px;color:var(--green)">Pendulares quase inexistentes no grupo antigo — quem para de viajar regularmente raramente volta a este ritmo.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
