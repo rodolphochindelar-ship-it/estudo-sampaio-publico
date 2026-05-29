@@ -261,10 +261,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
         <div class="seg-bar" style="background:linear-gradient(90deg,#D07A00 91.6%,var(--surface-mid) 91.6%)"></div>
       </div>
 
-      <div class="seg-card" style="border:2px solid #F0D8A8">
+      <div class="seg-card" style="border:2px solid #C8C4F8">
         <div class="seg-head">
           <div class="seg-name"><div class="seg-dot" style="background:#D07A00"></div>Frequentes <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 2–9 viagens</span></div>
-          <span class="seg-pct-badge" style="background:var(--amber-l);color:var(--amber)">8,3%</span>
+          <span class="seg-pct-badge" style="background:var(--purple-l);color:var(--purple)">8,3%</span>
         </div>
         <div class="seg-numbers">
           <div class="seg-num">
@@ -276,13 +276,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
             <p class="seg-num-val">110.772</p>
           </div>
         </div>
-        <div class="seg-bar" style="background:linear-gradient(90deg,#D07A00 8.3%,var(--surface-mid) 8.3%)"></div>
+        <div class="seg-bar" style="background:linear-gradient(90deg,#7F77DD 8.3%,var(--surface-mid) 8.3%)"></div>
       </div>
 
       <div class="seg-card">
         <div class="seg-head">
           <div class="seg-name"><div class="seg-dot" style="background:#D07A00"></div>Pendulares <span style="font-size:11px;font-weight:400;color:var(--text-3)">· 10+ viagens</span></div>
-          <span class="seg-pct-badge" style="background:var(--amber-l);color:var(--amber)">0,1%</span>
+          <span class="seg-pct-badge" style="background:var(--green-l);color:var(--green)">0,1%</span>
         </div>
         <div class="seg-numbers">
           <div class="seg-num">
@@ -294,7 +294,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
             <p class="seg-num-val">7.676</p>
           </div>
         </div>
-        <div class="seg-bar" style="background:linear-gradient(90deg,#D07A00 0.1%,var(--surface-mid) 0.1%)"></div>
+        <div class="seg-bar" style="background:linear-gradient(90deg,#2E8B3E 0.1%,var(--surface-mid) 0.1%)"></div>
       </div>
 
     </div>
@@ -306,10 +306,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
           <span style="width:7px;height:7px;border-radius:50%;background:#fff;display:inline-block"></span>Ocasionais
         </button>
         <button class="seg-tab" onclick="switchRotas('mais6','Frequente',this)">
-          <span style="width:7px;height:7px;border-radius:50%;background:#D07A00;display:inline-block"></span>Frequentes
+          <span style="width:7px;height:7px;border-radius:50%;background:#7F77DD;display:inline-block"></span>Frequentes
         </button>
         <button class="seg-tab" onclick="switchRotas('mais6','Pendular',this)">
-          <span style="width:7px;height:7px;border-radius:50%;background:#D07A00;display:inline-block"></span>Pendulares
+          <span style="width:7px;height:7px;border-radius:50%;background:#2E8B3E;display:inline-block"></span>Pendulares
         </button>
       </div>
       <div class="rota-card-wrap" id="painel-mais6">
@@ -423,6 +423,197 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
 
 </div>
 
+  <!-- BASE ALCANÇÁVEL -->
+  <div class="cmp-section">
+    <p class="cmp-title">Base alcançável por canal — visão de opt-in</p>
+
+    <!-- CARDS DE CONTEXTO -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh)">
+        <p style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-family:'DM Mono',monospace;margin-bottom:6px">Base total Sampaio</p>
+        <p style="font-size:26px;font-weight:600;letter-spacing:-0.02em;color:var(--blue)">732.308</p>
+        <p style="font-size:11px;color:var(--text-3);margin-top:4px">Passageiros únicos</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh)">
+        <p style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-family:'DM Mono',monospace;margin-bottom:6px">Identificados na Insider</p>
+        <p style="font-size:26px;font-weight:600;letter-spacing:-0.02em;color:var(--text-1)">102.741</p>
+        <p style="font-size:11px;color:var(--text-3);margin-top:4px">14,0% da base total</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh)">
+        <p style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-family:'DM Mono',monospace;margin-bottom:6px">Sem contato válido</p>
+        <p style="font-size:26px;font-weight:600;letter-spacing:-0.02em;color:var(--red)">240.254</p>
+        <p style="font-size:11px;color:var(--text-3);margin-top:4px">47,9% — prioridade de captura</p>
+      </div>
+    </div>
+
+    <!-- GRID OPT-IN POR CANAL -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+
+      <!-- ÚLTIMOS 6 MESES -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--blue)"></div>
+          <p style="font-size:13px;font-weight:600;color:var(--text-1)">Últimos 6 meses</p>
+          <span style="font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;background:var(--blue-l);color:var(--blue);font-family:'DM Mono',monospace">214.226 pax</span>
+        </div>
+        <p style="font-size:11px;color:var(--text-3);margin-bottom:16px">Identificados na Insider: <strong style="color:var(--text-1)">414</strong> (0,2% do grupo)</p>
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <!-- WhatsApp -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;font-weight:500;color:var(--text-1)">WhatsApp</span>
+              <div style="display:flex;gap:12px">
+                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">49 opt-in</span>
+                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">338 opt-out</span>
+              </div>
+            </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+              <div style="height:6px;width:11.8%;background:#25D366;border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:81.6%;background:var(--red-m);opacity:.5"></div>
+            </div>
+            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">11,8% opt-in · 81,6% opt-out · 6,5% sem dado</p>
+          </div>
+          <!-- SMS -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;font-weight:500;color:var(--text-1)">SMS</span>
+              <div style="display:flex;gap:12px">
+                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">54 opt-in</span>
+                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">334 opt-out</span>
+              </div>
+            </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+              <div style="height:6px;width:13%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:80.7%;background:var(--red-m);opacity:.5"></div>
+            </div>
+            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">13,0% opt-in · 80,7% opt-out · 6,3% sem dado</p>
+          </div>
+          <!-- App Push -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;font-weight:500;color:var(--text-1)">App Push</span>
+              <div style="display:flex;gap:12px">
+                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">77 opt-in</span>
+                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">29 opt-out</span>
+              </div>
+            </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+              <div style="height:6px;width:18.6%;background:var(--purple-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:7%;background:var(--red-m);opacity:.5"></div>
+            </div>
+            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">18,6% opt-in · 7,0% opt-out · 74,4% sem dado</p>
+          </div>
+          <!-- Web Push -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;font-weight:500;color:var(--text-1)">Web Push</span>
+              <div style="display:flex;gap:12px">
+                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">45 opt-in</span>
+                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">23 opt-out</span>
+              </div>
+            </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+              <div style="height:6px;width:10.9%;background:var(--amber-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:5.6%;background:var(--red-m);opacity:.5"></div>
+            </div>
+            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">10,9% opt-in · 5,6% opt-out · 83,6% sem dado</p>
+          </div>
+        </div>
+
+        <div style="background:var(--blue-l);border-radius:var(--r);padding:8px 10px;margin-top:14px">
+          <p style="font-size:11px;color:var(--blue)">Grupo mais recente tem opt-out elevado (80%+) nos canais mobile — sinal de que a comunicação pode estar chegando no momento errado ou com frequência excessiva.</p>
+        </div>
+      </div>
+
+      <!-- MAIS DE 6 MESES -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--amber-m);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber-m)"></div>
+          <p style="font-size:13px;font-weight:600;color:var(--text-1)">Mais de 6 meses</p>
+          <span style="font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;background:var(--amber-l);color:var(--amber);font-family:'DM Mono',monospace">518.082 pax</span>
+        </div>
+        <p style="font-size:11px;color:var(--text-3);margin-bottom:16px">Identificados na Insider: <strong style="color:var(--text-1)">143</strong> (0,03% do grupo)</p>
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <!-- WhatsApp -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;font-weight:500;color:var(--text-1)">WhatsApp</span>
+              <div style="display:flex;gap:12px">
+                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">25 opt-in</span>
+                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">89 opt-out</span>
+              </div>
+            </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+              <div style="height:6px;width:17.5%;background:#25D366;border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:62.2%;background:var(--red-m);opacity:.5"></div>
+            </div>
+            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">17,5% opt-in · 62,2% opt-out · 20,3% sem dado</p>
+          </div>
+          <!-- SMS -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;font-weight:500;color:var(--text-1)">SMS</span>
+              <div style="display:flex;gap:12px">
+                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">27 opt-in</span>
+                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">88 opt-out</span>
+              </div>
+            </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+              <div style="height:6px;width:18.9%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:61.5%;background:var(--red-m);opacity:.5"></div>
+            </div>
+            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">18,9% opt-in · 61,5% opt-out · 19,6% sem dado</p>
+          </div>
+          <!-- App Push -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;font-weight:500;color:var(--text-1)">App Push</span>
+              <div style="display:flex;gap:12px">
+                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">24 opt-in</span>
+                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">14 opt-out</span>
+              </div>
+            </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+              <div style="height:6px;width:16.8%;background:var(--purple-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:9.8%;background:var(--red-m);opacity:.5"></div>
+            </div>
+            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">16,8% opt-in · 9,8% opt-out · 73,4% sem dado</p>
+          </div>
+          <!-- Web Push -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+              <span style="font-size:12px;font-weight:500;color:var(--text-1)">Web Push</span>
+              <div style="display:flex;gap:12px">
+                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">7 opt-in</span>
+                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">2 opt-out</span>
+              </div>
+            </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+              <div style="height:6px;width:4.9%;background:var(--amber-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:1.4%;background:var(--red-m);opacity:.5"></div>
+            </div>
+            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">4,9% opt-in · 1,4% opt-out · 93,7% sem dado</p>
+          </div>
+        </div>
+
+        <div style="background:var(--amber-l);border-radius:var(--r);padding:8px 10px;margin-top:14px">
+          <p style="font-size:11px;color:var(--amber)">Base muito pouco mapeada na Insider (0,03%). A maioria deste grupo nunca foi alcançada digitalmente — principal oportunidade de captura de opt-in no ponto físico.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTA -->
+    <div style="background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px">
+      <p style="font-size:11px;color:var(--text-3);line-height:1.5">
+        <strong style="color:var(--text-2)">Nota metodológica:</strong> os dados de opt-in foram cruzados com o export da Insider de 29/05/2026 (125.670 registros). 
+        O match é feito por número de telefone. A taxa de identificação baixa nos dois grupos (0,2% e 0,03%) indica que a maior parte da base Sampaio ainda não foi enriquecida na Insider — 
+        os percentuais de opt-in/opt-out refletem o comportamento dos passageiros já cadastrados na plataforma.
+      </p>
+    </div>
+  </div>
+
 <script>
 const rotaData = {
   ate6: {
@@ -505,12 +696,12 @@ const rotaData = {
 
 const barColors = {
   ate6:  {Ocasional:'#378ADD', Frequente:'#7F77DD', Pendular:'#2E8B3E'},
-  mais6: {Ocasional:'#D07A00', Frequente:'#D07A00', Pendular:'#D07A00'},
+  mais6: {Ocasional:'#D07A00', Frequente:'#7F77DD', Pendular:'#2E8B3E'},
 };
 
 const activeClass = {
-  ate6:  {Ocasional:'active-blue', Frequente:'active-purple', Pendular:'active-green'},
-  mais6: {Ocasional:'active-amber-oc', Frequente:'active-amber-fr', Pendular:'active-amber-pe'},
+  ate6:  {Ocasional:'active-blue',     Frequente:'active-purple', Pendular:'active-green'},
+  mais6: {Ocasional:'active-amber-oc', Frequente:'active-purple', Pendular:'active-green'},
 };
 
 const segLabels = {Ocasional:'Ocasionais · 1 viagem', Frequente:'Frequentes · 2–9 viagens', Pendular:'Pendulares · 10+ viagens'};
