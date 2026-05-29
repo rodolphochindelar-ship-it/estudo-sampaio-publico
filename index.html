@@ -95,6 +95,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
 .cmp-leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-2)}
 .cmp-leg-dot{width:8px;height:8px;border-radius:2px}
 
+/* TABS SEGMENTO */
+.seg-tabs{display:flex;gap:6px;margin-bottom:14px}
+.seg-tab{padding:6px 14px;font-size:12px;font-weight:500;border-radius:20px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text-2);cursor:pointer;transition:all .15s;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:5px}
+.seg-tab:hover{border-color:var(--blue);color:var(--blue)}
+.seg-tab.active-blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.seg-tab.active-purple{background:var(--purple-m);border-color:var(--purple-m);color:#fff}
+.seg-tab.active-green{background:var(--green-m);border-color:var(--green-m);color:#fff}
+.seg-tab.active-amber-oc{background:var(--amber-m);border-color:var(--amber-m);color:#fff}
+.seg-tab.active-amber-fr{background:var(--amber-m);border-color:var(--amber-m);color:#fff}
+.seg-tab.active-amber-pe{background:var(--amber-m);border-color:var(--amber-m);color:#fff}
+.rota-panel{display:none}.rota-panel.active{display:block}
+.rota-card-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh)}
+
 @media(max-width:700px){
   .grid-2{grid-template-columns:1fr}
   .totals{grid-template-columns:1fr 1fr}
@@ -199,100 +212,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
     </div>
 
     <!-- Rotas -->
-    <div class="rota-card">
-      <p class="rota-card-title">Top 10 rotas — últimos 6 meses</p>
-      <div id="rotas-ate6">
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ São José dos Campos - SP</p>
-            <p class="rota-pax">37.251 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:100%;background:#378ADD"></div></div>
-          <p class="rota-viag">60.524 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Aparecida - SP</p>
-            <p class="rota-pax">23.038 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:62%;background:#378ADD"></div></div>
-          <p class="rota-viag">28.107 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Taubaté - SP</p>
-            <p class="rota-pax">19.665 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:53%;background:#378ADD"></div></div>
-          <p class="rota-viag">32.355 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ São Lourenço - MG</p>
-            <p class="rota-pax">13.781 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:37%;background:#378ADD"></div></div>
-          <p class="rota-viag">20.542 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Santos - SP</p>
-            <p class="rota-pax">16.142 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:43%;background:#378ADD"></div></div>
-          <p class="rota-viag">18.762 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Mogi das Cruzes - SP</p>
-            <p class="rota-pax">8.310 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:22%;background:#378ADD"></div></div>
-          <p class="rota-viag">12.001 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Pouso Alegre - MG</p>
-            <p class="rota-pax">7.065 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:19%;background:#378ADD"></div></div>
-          <p class="rota-viag">10.502 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Varginha - MG</p>
-            <p class="rota-pax">6.140 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:16%;background:#378ADD"></div></div>
-          <p class="rota-viag">9.443 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">SJC - SP ↔ Resende - RJ</p>
-            <p class="rota-pax">4.597 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:12%;background:#378ADD"></div></div>
-          <p class="rota-viag">7.201 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Lavras - MG</p>
-            <p class="rota-pax">4.858 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:12%;background:#378ADD"></div></div>
-          <p class="rota-viag">6.951 viagens</p>
-        </div>
-
+    <div>
+      <div class="seg-tabs">
+        <button class="seg-tab active-blue" onclick="switchRotas('ate6','Ocasional',this)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#fff;display:inline-block"></span>Ocasionais
+        </button>
+        <button class="seg-tab" onclick="switchRotas('ate6','Frequente',this)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#7F77DD;display:inline-block"></span>Frequentes
+        </button>
+        <button class="seg-tab" onclick="switchRotas('ate6','Pendular',this)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#2E8B3E;display:inline-block"></span>Pendulares
+        </button>
+      </div>
+      <div class="rota-card-wrap" id="painel-ate6">
+        <p class="rota-card-title" id="title-ate6">Top 10 rotas — Ocasionais · últimos 6 meses</p>
+        <div id="lista-ate6"></div>
       </div>
     </div>
   </div>
@@ -366,99 +300,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
     </div>
 
     <!-- Rotas -->
-    <div class="rota-card">
-      <p class="rota-card-title">Top 10 rotas — mais de 6 meses</p>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ São José dos Campos - SP</p>
-            <p class="rota-pax">90.311 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:100%;background:#D07A00"></div></div>
-          <p class="rota-viag">108.532 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Aparecida - SP</p>
-            <p class="rota-pax">52.554 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:58%;background:#D07A00"></div></div>
-          <p class="rota-viag">55.796 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Taubaté - SP</p>
-            <p class="rota-pax">46.982 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:52%;background:#D07A00"></div></div>
-          <p class="rota-viag">56.572 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Santos - SP</p>
-            <p class="rota-pax">39.368 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:44%;background:#D07A00"></div></div>
-          <p class="rota-viag">42.474 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ São Lourenço - MG</p>
-            <p class="rota-pax">33.702 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:37%;background:#D07A00"></div></div>
-          <p class="rota-viag">38.308 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Mogi das Cruzes - SP</p>
-            <p class="rota-pax">21.009 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:23%;background:#D07A00"></div></div>
-          <p class="rota-viag">24.164 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Pouso Alegre - MG</p>
-            <p class="rota-pax">15.580 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:17%;background:#D07A00"></div></div>
-          <p class="rota-viag">17.974 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Varginha - MG</p>
-            <p class="rota-pax">14.196 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:16%;background:#D07A00"></div></div>
-          <p class="rota-viag">16.718 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">SJC - SP ↔ Resende - RJ</p>
-            <p class="rota-pax">11.577 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:13%;background:#D07A00"></div></div>
-          <p class="rota-viag">13.845 viagens</p>
-        </div>
-
-        <div class="rota-item">
-          <div class="rota-item-top">
-            <p class="rota-nome">RJ ↔ Lavras - MG</p>
-            <p class="rota-pax">11.855 pax</p>
-          </div>
-          <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:13%;background:#D07A00"></div></div>
-          <p class="rota-viag">13.504 viagens</p>
-        </div>
-
+    <div>
+      <div class="seg-tabs">
+        <button class="seg-tab active-amber-oc" onclick="switchRotas('mais6','Ocasional',this)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#fff;display:inline-block"></span>Ocasionais
+        </button>
+        <button class="seg-tab" onclick="switchRotas('mais6','Frequente',this)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#D07A00;display:inline-block"></span>Frequentes
+        </button>
+        <button class="seg-tab" onclick="switchRotas('mais6','Pendular',this)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#D07A00;display:inline-block"></span>Pendulares
+        </button>
+      </div>
+      <div class="rota-card-wrap" id="painel-mais6">
+        <p class="rota-card-title" id="title-mais6">Top 10 rotas — Ocasionais · mais de 6 meses</p>
+        <div id="lista-mais6"></div>
+      </div>
     </div>
   </div>
 
@@ -565,5 +422,129 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
   </div>
 
 </div>
+
+<script>
+const rotaData = {
+  ate6: {
+    Ocasional: [
+      {n:'RJ ↔ SJC - SP',pax:29007,viag:29007,pct:100},
+      {n:'Aparecida ↔ RJ',pax:20399,viag:20399,pct:70},
+      {n:'RJ ↔ Taubaté',pax:15309,viag:15309,pct:53},
+      {n:'RJ ↔ Santos',pax:14537,viag:14537,pct:50},
+      {n:'RJ ↔ São Lourenço',pax:11056,viag:11056,pct:38},
+      {n:'Mogi das Cruzes ↔ RJ',pax:6582,viag:6582,pct:23},
+      {n:'Pouso Alegre ↔ RJ',pax:5527,viag:5527,pct:19},
+      {n:'RJ ↔ Varginha',pax:4847,viag:4847,pct:17},
+      {n:'Guarulhos ↔ RJ',pax:4262,viag:4262,pct:15},
+      {n:'RJ ↔ Três Corações',pax:4004,viag:4004,pct:14},
+    ],
+    Frequente: [
+      {n:'RJ ↔ SJC - SP',pax:7818,viag:23922,pct:100},
+      {n:'RJ ↔ Taubaté',pax:4126,viag:12865,pct:53},
+      {n:'RJ ↔ São Lourenço',pax:2620,viag:7593,pct:34},
+      {n:'Aparecida ↔ RJ',pax:2585,viag:6940,pct:33},
+      {n:'Mogi das Cruzes ↔ RJ',pax:1686,viag:4824,pct:22},
+      {n:'RJ ↔ Santos',pax:1591,viag:4064,pct:20},
+      {n:'Pouso Alegre ↔ RJ',pax:1492,viag:4305,pct:19},
+      {n:'RJ ↔ Varginha',pax:1248,viag:3781,pct:16},
+      {n:'Alfenas ↔ RJ',pax:864,viag:2494,pct:11},
+      {n:'Resende ↔ SJC',pax:863,viag:2727,pct:11},
+    ],
+    Pendular: [
+      {n:'RJ ↔ SJC - SP',pax:426,viag:7595,pct:100},
+      {n:'RJ ↔ Taubaté',pax:230,viag:4181,pct:54},
+      {n:'RJ ↔ São Lourenço',pax:105,viag:1893,pct:25},
+      {n:'Resende ↔ Taubaté',pax:54,viag:937,pct:13},
+      {n:'Aparecida ↔ RJ',pax:54,viag:768,pct:13},
+      {n:'Pouso Alegre ↔ RJ',pax:46,viag:670,pct:11},
+      {n:'RJ ↔ Varginha',pax:45,viag:815,pct:11},
+      {n:'Resende ↔ SJC',pax:44,viag:784,pct:10},
+      {n:'Mogi das Cruzes ↔ RJ',pax:42,viag:595,pct:10},
+      {n:'Lavras ↔ RJ',pax:36,viag:496,pct:8},
+    ],
+  },
+  mais6: {
+    Ocasional: [
+      {n:'RJ ↔ SJC - SP',pax:80509,viag:80509,pct:100},
+      {n:'Aparecida ↔ RJ',pax:50271,viag:50271,pct:62},
+      {n:'RJ ↔ Taubaté',pax:41883,viag:41883,pct:52},
+      {n:'RJ ↔ Santos',pax:37225,viag:37225,pct:46},
+      {n:'RJ ↔ São Lourenço',pax:30871,viag:30871,pct:38},
+      {n:'Mogi das Cruzes ↔ RJ',pax:19048,viag:19048,pct:24},
+      {n:'Pouso Alegre ↔ RJ',pax:14051,viag:14051,pct:17},
+      {n:'RJ ↔ Varginha',pax:12701,viag:12701,pct:16},
+      {n:'Campos do Jordão ↔ RJ',pax:11579,viag:11579,pct:14},
+      {n:'Lavras ↔ RJ',pax:10827,viag:10827,pct:13},
+    ],
+    Frequente: [
+      {n:'RJ ↔ SJC - SP',pax:9634,viag:25665,pct:100},
+      {n:'RJ ↔ Taubaté',pax:4999,viag:13237,pct:52},
+      {n:'RJ ↔ São Lourenço',pax:2807,viag:7077,pct:29},
+      {n:'Aparecida ↔ RJ',pax:2277,viag:5447,pct:24},
+      {n:'RJ ↔ Santos',pax:2132,viag:5110,pct:22},
+      {n:'Mogi das Cruzes ↔ RJ',pax:1945,viag:4896,pct:20},
+      {n:'Pouso Alegre ↔ RJ',pax:1522,viag:3841,pct:16},
+      {n:'RJ ↔ Varginha',pax:1487,viag:3913,pct:15},
+      {n:'Resende ↔ SJC',pax:1148,viag:3080,pct:12},
+      {n:'Lavras ↔ RJ',pax:1022,viag:2599,pct:11},
+    ],
+    Pendular: [
+      {n:'RJ ↔ SJC - SP',pax:168,viag:2358,pct:100},
+      {n:'RJ ↔ Taubaté',pax:100,viag:1452,pct:60},
+      {n:'RJ ↔ São Lourenço',pax:24,viag:360,pct:14},
+      {n:'Resende ↔ Taubaté',pax:21,viag:360,pct:12},
+      {n:'Cachoeira Paulista ↔ Resende',pax:17,viag:590,pct:10},
+      {n:'Resende ↔ SJC',pax:17,viag:353,pct:10},
+      {n:'Mogi das Cruzes ↔ RJ',pax:16,viag:220,pct:10},
+      {n:'Lorena ↔ Resende',pax:14,viag:258,pct:8},
+      {n:'RJ ↔ Santos',pax:11,viag:139,pct:7},
+      {n:'RJ ↔ Varginha',pax:8,viag:104,pct:5},
+    ],
+  }
+};
+
+const barColors = {
+  ate6:  {Ocasional:'#378ADD', Frequente:'#7F77DD', Pendular:'#2E8B3E'},
+  mais6: {Ocasional:'#D07A00', Frequente:'#D07A00', Pendular:'#D07A00'},
+};
+
+const activeClass = {
+  ate6:  {Ocasional:'active-blue', Frequente:'active-purple', Pendular:'active-green'},
+  mais6: {Ocasional:'active-amber-oc', Frequente:'active-amber-fr', Pendular:'active-amber-pe'},
+};
+
+const segLabels = {Ocasional:'Ocasionais · 1 viagem', Frequente:'Frequentes · 2–9 viagens', Pendular:'Pendulares · 10+ viagens'};
+const periodoLabels = {ate6:'últimos 6 meses', mais6:'mais de 6 meses'};
+
+function renderRotas(periodo, seg) {
+  const data = rotaData[periodo][seg];
+  const cor = barColors[periodo][seg];
+  const container = document.getElementById('lista-' + periodo);
+  const title = document.getElementById('title-' + periodo);
+  title.textContent = 'Top 10 rotas — ' + segLabels[seg] + ' · ' + periodoLabels[periodo];
+  container.innerHTML = data.map(d => `
+    <div class="rota-item">
+      <div class="rota-item-top">
+        <p class="rota-nome">${d.n}</p>
+        <p class="rota-pax">${d.pax.toLocaleString('pt-BR')} pax</p>
+      </div>
+      <div class="rota-bar-wrap"><div class="rota-bar-fill" style="width:${d.pct}%;background:${cor}"></div></div>
+      <p class="rota-viag">${d.viag.toLocaleString('pt-BR')} viagens</p>
+    </div>`).join('');
+}
+
+function switchRotas(periodo, seg, btn) {
+  const wrapper = btn.closest('div');
+  wrapper.querySelectorAll('.seg-tab').forEach(b => {
+    b.classList.remove('active-blue','active-purple','active-green','active-amber-oc','active-amber-fr','active-amber-pe');
+  });
+  btn.classList.add(activeClass[periodo][seg]);
+  renderRotas(periodo, seg);
+}
+
+// Inicializar ambos os painéis
+renderRotas('ate6', 'Ocasional');
+renderRotas('mais6', 'Ocasional');
+</script>
 </body>
 </html>
