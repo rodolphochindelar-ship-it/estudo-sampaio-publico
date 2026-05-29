@@ -425,10 +425,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
 
   <!-- BASE ALCANÇÁVEL -->
   <div class="cmp-section">
-    <p class="cmp-title">Base alcançável por canal — visão de opt-in</p>
+    <p class="cmp-title">Base alcançável por canal — opt-in vs opt-out</p>
 
-    <!-- CARDS DE CONTEXTO -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px">
+    <!-- CARDS RESUMO -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px">
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh)">
         <p style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-family:'DM Mono',monospace;margin-bottom:6px">Base total Sampaio</p>
         <p style="font-size:26px;font-weight:600;letter-spacing:-0.02em;color:var(--blue)">732.308</p>
@@ -446,205 +446,206 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-1);f
       </div>
     </div>
 
-    <!-- GRID OPT-IN POR CANAL -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+    <!-- TABELA COMPARATIVA POR CANAL -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
 
-      <!-- ÚLTIMOS 6 MESES -->
-      <div style="background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh)">
+      <!-- CARD ÚLTIMOS 6 MESES -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:var(--r-lg);padding:20px;box-shadow:var(--sh)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-          <div style="width:8px;height:8px;border-radius:50%;background:var(--blue)"></div>
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0"></div>
           <p style="font-size:13px;font-weight:600;color:var(--text-1)">Últimos 6 meses</p>
-          <span style="font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;background:var(--blue-l);color:var(--blue);font-family:'DM Mono',monospace">214.226 pax</span>
+          <span style="font-size:11px;padding:2px 8px;border-radius:20px;background:var(--blue-l);color:var(--blue);font-family:'DM Mono',monospace;font-weight:500">214.226 pax</span>
         </div>
-        <p style="font-size:11px;color:var(--text-3);margin-bottom:16px">Identificados na Insider: <strong style="color:var(--text-1)">414</strong> (0,2% do grupo)</p>
+        <p style="font-size:11px;color:var(--text-3);margin-bottom:20px">Match na Insider: <strong style="color:var(--text-1);font-family:'DM Mono',monospace">414</strong> por tel · <strong style="color:var(--text-1);font-family:'DM Mono',monospace">5.344</strong> por e-mail</p>
 
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <!-- WhatsApp -->
+        <!-- LINHA DE HEADER DA TABELA -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;padding:0 0 6px;border-bottom:1px solid var(--border-strong);margin-bottom:8px">
+          <span style="font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em">Canal</span>
+          <span style="font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em">Distribuição</span>
+          <span style="font-size:10px;font-weight:600;color:var(--green-m);text-transform:uppercase;letter-spacing:.06em;text-align:right">Opt-in</span>
+          <span style="font-size:10px;font-weight:600;color:var(--red-m);text-transform:uppercase;letter-spacing:.06em;text-align:right">Opt-out</span>
+        </div>
+
+        <!-- WHATSAPP -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">WhatsApp</span>
           <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">WhatsApp</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">49 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">338 opt-out</span>
-              </div>
-            </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
               <div style="height:6px;width:11.8%;background:#25D366;border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:81.6%;background:var(--red-m);opacity:.5"></div>
+              <div style="height:6px;width:81.6%;background:var(--red-m);opacity:.6"></div>
             </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">11,8% opt-in · 81,6% opt-out · 6,5% sem dado</p>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">6,5% sem dado</p>
           </div>
-          <!-- SMS -->
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">SMS</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">54 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">334 opt-out</span>
-              </div>
-            </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
-              <div style="height:6px;width:13%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:80.7%;background:var(--red-m);opacity:.5"></div>
-            </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">13,0% opt-in · 80,7% opt-out · 6,3% sem dado</p>
-          </div>
-          <!-- App Push -->
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">App Push</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">77 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">29 opt-out</span>
-              </div>
-            </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
-              <div style="height:6px;width:18.6%;background:var(--purple-m);border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:7%;background:var(--red-m);opacity:.5"></div>
-            </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">18,6% opt-in · 7,0% opt-out · 74,4% sem dado</p>
-          </div>
-          <!-- Web Push -->
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">Web Push</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">45 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">23 opt-out</span>
-              </div>
-            </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
-              <div style="height:6px;width:10.9%;background:var(--amber-m);border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:5.6%;background:var(--red-m);opacity:.5"></div>
-            </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">10,9% opt-in · 5,6% opt-out · 83,6% sem dado</p>
-          </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">11,8%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">81,6%</p>
         </div>
 
-          <!-- Email ate6 -->
+        <!-- SMS -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">SMS</span>
           <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">E-mail</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">862 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">4.439 opt-out</span>
-              </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
+              <div style="height:6px;width:13%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:80.7%;background:var(--red-m);opacity:.6"></div>
             </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
-              <div style="height:6px;width:16.1%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:83.1%;background:var(--red-m);opacity:.5"></div>
-            </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">16,1% opt-in · 83,1% opt-out · 0,8% sem dado · match: 5.344</p>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">6,3% sem dado</p>
           </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">13,0%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">80,7%</p>
+        </div>
+
+        <!-- E-MAIL -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">E-mail</span>
+          <div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
+              <div style="height:6px;width:16.1%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:83.1%;background:var(--red-m);opacity:.6"></div>
+            </div>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">0,8% sem dado</p>
+          </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">16,1%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">83,1%</p>
+        </div>
+
+        <!-- APP PUSH -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">App Push</span>
+          <div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
+              <div style="height:6px;width:18.6%;background:var(--purple-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:7%;background:var(--red-m);opacity:.6"></div>
+            </div>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">74,4% sem dado</p>
+          </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">18,6%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">7,0%</p>
+        </div>
+
+        <!-- WEB PUSH -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">Web Push</span>
+          <div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
+              <div style="height:6px;width:10.9%;background:var(--amber-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:5.6%;background:var(--red-m);opacity:.6"></div>
+            </div>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">83,6% sem dado</p>
+          </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">10,9%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">5,6%</p>
         </div>
 
         <div style="background:var(--blue-l);border-radius:var(--r);padding:8px 10px;margin-top:14px">
-          <p style="font-size:11px;color:var(--blue)">Grupo mais recente tem opt-out elevado (80%+) nos canais mobile e e-mail — sinal de que a comunicação pode estar chegando no momento errado ou com frequência excessiva.</p>
+          <p style="font-size:11px;color:var(--blue)">Opt-out elevado em todos os canais mobile e e-mail (80%+). Grupo ativo mas pouco receptivo a comunicação digital — revisar frequência e timing das campanhas.</p>
         </div>
       </div>
 
-      <!-- MAIS DE 6 MESES -->
-      <div style="background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--amber-m);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh)">
+      <!-- CARD MAIS DE 6 MESES -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--amber-m);border-radius:var(--r-lg);padding:20px;box-shadow:var(--sh)">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber-m)"></div>
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--amber-m);flex-shrink:0"></div>
           <p style="font-size:13px;font-weight:600;color:var(--text-1)">Mais de 6 meses</p>
-          <span style="font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;background:var(--amber-l);color:var(--amber);font-family:'DM Mono',monospace">518.082 pax</span>
+          <span style="font-size:11px;padding:2px 8px;border-radius:20px;background:var(--amber-l);color:var(--amber);font-family:'DM Mono',monospace;font-weight:500">518.082 pax</span>
         </div>
-        <p style="font-size:11px;color:var(--text-3);margin-bottom:16px">Identificados na Insider: <strong style="color:var(--text-1)">143</strong> (0,03% do grupo)</p>
+        <p style="font-size:11px;color:var(--text-3);margin-bottom:20px">Match na Insider: <strong style="color:var(--text-1);font-family:'DM Mono',monospace">143</strong> por tel · <strong style="color:var(--text-1);font-family:'DM Mono',monospace">10.060</strong> por e-mail</p>
 
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <!-- WhatsApp -->
+        <!-- HEADER -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;padding:0 0 6px;border-bottom:1px solid var(--border-strong);margin-bottom:8px">
+          <span style="font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em">Canal</span>
+          <span style="font-size:10px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em">Distribuição</span>
+          <span style="font-size:10px;font-weight:600;color:var(--green-m);text-transform:uppercase;letter-spacing:.06em;text-align:right">Opt-in</span>
+          <span style="font-size:10px;font-weight:600;color:var(--red-m);text-transform:uppercase;letter-spacing:.06em;text-align:right">Opt-out</span>
+        </div>
+
+        <!-- WHATSAPP -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">WhatsApp</span>
           <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">WhatsApp</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">25 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">89 opt-out</span>
-              </div>
-            </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
               <div style="height:6px;width:17.5%;background:#25D366;border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:62.2%;background:var(--red-m);opacity:.5"></div>
+              <div style="height:6px;width:62.2%;background:var(--red-m);opacity:.6"></div>
             </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">17,5% opt-in · 62,2% opt-out · 20,3% sem dado</p>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">20,3% sem dado</p>
           </div>
-          <!-- SMS -->
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">SMS</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">27 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">88 opt-out</span>
-              </div>
-            </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
-              <div style="height:6px;width:18.9%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:61.5%;background:var(--red-m);opacity:.5"></div>
-            </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">18,9% opt-in · 61,5% opt-out · 19,6% sem dado</p>
-          </div>
-          <!-- App Push -->
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">App Push</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">24 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">14 opt-out</span>
-              </div>
-            </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
-              <div style="height:6px;width:16.8%;background:var(--purple-m);border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:9.8%;background:var(--red-m);opacity:.5"></div>
-            </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">16,8% opt-in · 9,8% opt-out · 73,4% sem dado</p>
-          </div>
-          <!-- Web Push -->
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">Web Push</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">7 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">2 opt-out</span>
-              </div>
-            </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
-              <div style="height:6px;width:4.9%;background:var(--amber-m);border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:1.4%;background:var(--red-m);opacity:.5"></div>
-            </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">4,9% opt-in · 1,4% opt-out · 93,7% sem dado</p>
-          </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">17,5%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">62,2%</p>
         </div>
 
-          <!-- Email mais6 -->
+        <!-- SMS -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">SMS</span>
           <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-              <span style="font-size:12px;font-weight:500;color:var(--text-1)">E-mail</span>
-              <div style="display:flex;gap:12px">
-                <span style="font-size:11px;color:var(--green-m);font-family:'DM Mono',monospace;font-weight:600">5.633 opt-in</span>
-                <span style="font-size:11px;color:var(--red-m);font-family:'DM Mono',monospace">3.346 opt-out</span>
-              </div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
+              <div style="height:6px;width:18.9%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:61.5%;background:var(--red-m);opacity:.6"></div>
             </div>
-            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex">
-              <div style="height:6px;width:56%;background:var(--blue-m);border-radius:3px 0 0 3px"></div>
-              <div style="height:6px;width:33.3%;background:var(--red-m);opacity:.5"></div>
-            </div>
-            <p style="font-size:10px;color:var(--text-3);margin-top:3px;font-family:'DM Mono',monospace">56,0% opt-in · 33,3% opt-out · 10,7% sem dado · match: 10.060</p>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">19,6% sem dado</p>
           </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">18,9%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">61,5%</p>
+        </div>
+
+        <!-- E-MAIL — DESTAQUE -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);background:var(--green-l);border-radius:var(--r);margin:4px -4px;padding:8px 8px">
+          <span style="font-size:12px;font-weight:600;color:var(--green)">E-mail ✓</span>
+          <div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
+              <div style="height:6px;width:56%;background:var(--green-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:33.3%;background:var(--red-m);opacity:.6"></div>
+            </div>
+            <p style="font-size:9px;color:var(--green);margin-top:2px;font-family:'DM Mono',monospace">10,7% sem dado</p>
+          </div>
+          <p style="font-size:12px;font-weight:700;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">56,0%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">33,3%</p>
+        </div>
+
+        <!-- APP PUSH -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">App Push</span>
+          <div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
+              <div style="height:6px;width:16.8%;background:var(--purple-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:9.8%;background:var(--red-m);opacity:.6"></div>
+            </div>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">73,4% sem dado</p>
+          </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">16,8%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">9,8%</p>
+        </div>
+
+        <!-- WEB PUSH -->
+        <div style="display:grid;grid-template-columns:90px 1fr 56px 56px;gap:6px;align-items:center;padding:8px 0">
+          <span style="font-size:12px;font-weight:500;color:var(--text-1)">Web Push</span>
+          <div>
+            <div style="height:6px;background:var(--surface-mid);border-radius:3px;overflow:hidden;display:flex;gap:1px">
+              <div style="height:6px;width:4.9%;background:var(--amber-m);border-radius:3px 0 0 3px"></div>
+              <div style="height:6px;width:1.4%;background:var(--red-m);opacity:.6"></div>
+            </div>
+            <p style="font-size:9px;color:var(--text-3);margin-top:2px;font-family:'DM Mono',monospace">93,7% sem dado</p>
+          </div>
+          <p style="font-size:12px;font-weight:600;color:var(--green-m);font-family:'DM Mono',monospace;text-align:right">4,9%</p>
+          <p style="font-size:12px;font-weight:600;color:var(--red-m);font-family:'DM Mono',monospace;text-align:right">1,4%</p>
         </div>
 
         <div style="background:var(--amber-l);border-radius:var(--r);padding:8px 10px;margin-top:14px">
-          <p style="font-size:11px;color:var(--amber)">E-mail tem melhor opt-in neste grupo (56%) — passageiros antigos que ainda mantêm e-mail cadastrado tendem a ser mais receptivos. Canal prioritário para reativação.</p>
+          <p style="font-size:11px;color:var(--amber)">E-mail é o canal mais eficaz para este grupo — 56% de opt-in. Passageiros inativos que mantêm e-mail na Insider são a principal alavanca de reativação.</p>
         </div>
       </div>
     </div>
 
-    <!-- NOTA -->
-    <div style="background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px">
-      <p style="font-size:11px;color:var(--text-3);line-height:1.5">
-        <strong style="color:var(--text-2)">Nota metodológica:</strong> os dados de opt-in foram cruzados com o export da Insider de 29/05/2026 (125.670 registros). 
-        O match é feito por número de telefone. A taxa de identificação baixa nos dois grupos (0,2% e 0,03%) indica que a maior parte da base Sampaio ainda não foi enriquecida na Insider — 
-        os percentuais de opt-in/opt-out refletem o comportamento dos passageiros já cadastrados na plataforma.
-      </p>
+    <!-- LEGENDA -->
+    <div style="display:flex;align-items:center;gap:16px;margin-top:12px;padding:10px 14px;background:var(--surface-alt);border-radius:var(--r);border:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3)">
+        <div style="width:12px;height:6px;border-radius:2px;background:var(--green-m)"></div>Opt-in
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3)">
+        <div style="width:12px;height:6px;border-radius:2px;background:var(--red-m);opacity:.6"></div>Opt-out
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3)">
+        <div style="width:12px;height:6px;border-radius:2px;background:var(--surface-mid)"></div>Sem dado
+      </div>
+      <span style="font-size:11px;color:var(--text-3);margin-left:auto">Export Insider 29/05/2026 · cruzamento por telefone (tel) e e-mail</span>
     </div>
   </div>
 
